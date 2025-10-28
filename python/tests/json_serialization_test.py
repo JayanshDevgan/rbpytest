@@ -4,7 +4,7 @@ import random
 import gc
 import os
 
-class JSONSerializationTestTest:
+class JSONSerializationTest:
     def __init__(self, obj_size=5000, depth=3, runs=5, name="JSON Serialization"):
         self.name = name
         self.obj_size = obj_size

@@ -1,6 +1,6 @@
 import time, json, gc, tracemalloc
 
-class SerializationTest:
+class SerializationTestTest:
     name = "Serialization"
 
     def __init__(self, ops_per_iter=100_000):
@@ -61,5 +61,5 @@ class SerializationTest:
         }
 
 if __name__ == "__main__":
-    result = SerializationTest().run()
+    result = SerializationTestTest().run()
     print(json.dumps(result, indent=2))

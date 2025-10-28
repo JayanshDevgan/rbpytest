@@ -1,6 +1,6 @@
 import time, threading, json, gc
 
-class ThreadingTest:
+class ThreadingTestTest:
     name = "Threading / Concurrency"
 
     def __init__(self, threads=8, work_size=2_000_000, runs=3):
@@ -62,7 +62,7 @@ class ThreadingTest:
         }
 
 if __name__ == "__main__":
-    result = ThreadingTest(threads=8, work_size=2_000_000, runs=3).run()
+    result = ThreadingTestTest(threads=8, work_size=2_000_000, runs=3).run()
     with open("results_python_threading.json", "w") as f:
         json.dump(result, f, indent=2)
     print(json.dumps(result, indent=2))

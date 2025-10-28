@@ -44,7 +44,7 @@ class StringConcatTest:
             "ops_per_sec_join": self.n / join_time if join_time > 0 else float("inf")
         }
 
-    def run(self, runs=3):
+    def run(self, runs=3, iterations=None):
         results = [self.run_once() for _ in range(runs)]
         total_times = sorted(r["total_time_s"] for r in results)
         plus_times = sorted(r["plus_time_s"] for r in results)

@@ -1,6 +1,6 @@
 import time, tracemalloc, json
 
-class RecursiveFibonacciTestTest:
+class RecursiveFibonacciTest:
     name = "RecursiveFibonacci"
 
     def __init__(self, n=20):
@@ -42,7 +42,7 @@ class RecursiveFibonacciTestTest:
         }
 
 if __name__ == "__main__":
-    test = RecursiveFibonacciTestTest(24)
+    test = RecursiveFibonacciTest(24)
     result = test.run()
     with open("results_python_recursive_fib.json", "w") as f:
         json.dump(result, f, indent=2)

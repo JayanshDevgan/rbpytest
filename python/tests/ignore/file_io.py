@@ -5,7 +5,7 @@ import tempfile
 import gc
 
 class FileIOTestTest:
-    def __init__(self, size_mb=50, name="File I/O"):
+    def __init__(self, size_mb=50, name="FileIOTest"):
         self.name = name
         self.size_mb = size_mb
         self.test_file = os.path.join(tempfile.gettempdir(), "41e0a8c7d0.cgv")

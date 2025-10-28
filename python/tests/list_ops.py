@@ -4,7 +4,7 @@ import json
 import gc
 import os
 
-class ListOpsTestTest:
+class ListOpsTest:
     def __init__(self, ops_per_iter=1_000_000, name="ListOps"):
         self.name = name
         self.ops_per_iter = ops_per_iter
@@ -78,7 +78,7 @@ class ListOpsTestTest:
 
 if __name__ == "__main__":
     os.makedirs("results", exist_ok=True)
-    test = ListOpsTestTest()
+    test = ListOpsTest()
     result = test.run()
     with open("results_list_ops_python.json", "w") as f:
         json.dump(result, f, indent=2)

@@ -35,7 +35,7 @@ class SortingBenchmarkTest:
             "checksum": checksum
         }
 
-    def run(self, runs=5):
+    def run(self, runs=5, iterations=None):
         results = [self.run_once() for _ in range(runs)]
         times = sorted(r["time_s"] for r in results)
         ops = sorted(r["ops_per_sec"] for r in results)
