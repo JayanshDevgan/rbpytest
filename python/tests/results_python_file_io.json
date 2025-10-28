@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from file_io import FileIoTest; res = FileIoTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ImportError: cannot import name 'FileIoTest' from 'file_io' (C:\dev\rbpytest\python/tests\file_io.py). Did you mean: 'FileIOTestTest'?

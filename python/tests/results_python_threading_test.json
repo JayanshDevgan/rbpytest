@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from threading_test import ThreadingTestTest; res = ThreadingTestTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ImportError: cannot import name 'ThreadingTestTest' from 'threading_test' (C:\dev\rbpytest\python/tests\threading_test.py). Did you mean: 'ThreadingTest'?

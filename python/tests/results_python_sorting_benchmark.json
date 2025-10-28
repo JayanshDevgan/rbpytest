@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from sorting_benchmark import SortingBenchmarkTest; res = SortingBenchmarkTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SortingBenchmarkTest.run() got an unexpected keyword argument 'iterations'
