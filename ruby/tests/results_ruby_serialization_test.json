@@ -1,6 +1,0 @@
-<internal:C:/Ruby34-x64/lib/ruby/3.4.0/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require': cannot load such file -- gc (LoadError)
-	from <internal:C:/Ruby34-x64/lib/ruby/3.4.0/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
-	from C:/dev/rbpytest/ruby/tests/serialization_test.rb:2:in '<top (required)>'
-	from <internal:C:/Ruby34-x64/lib/ruby/3.4.0/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
-	from <internal:C:/Ruby34-x64/lib/ruby/3.4.0/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
-	from -e:1:in '<main>'

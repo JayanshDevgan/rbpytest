@@ -1,2 +1,38 @@
-C:/dev/rbpytest/ruby/tests/sorting_benchmark.rb:26:in 'run': wrong number of arguments (given 2, expected 0..1) (ArgumentError)
-	from -e:1:in '<main>'
+{
+  "name": "SortingBenchmark",
+  "runs": 5,
+  "median_time_sec": 0.00155810000069323,
+  "median_ops_per_sec": 85281511.92887157,
+  "raw": [
+    {
+      "time_s": 0.0034946999985550065,
+      "ops": 132877.1237954945,
+      "ops_per_sec": 38022469.41094707,
+      "checksum": 605593
+    },
+    {
+      "time_s": 0.00155810000069323,
+      "ops": 132877.1237954945,
+      "ops_per_sec": 85281511.92887157,
+      "checksum": 407546
+    },
+    {
+      "time_s": 0.0020637999987229705,
+      "ops": 132877.1237954945,
+      "ops_per_sec": 64384690.31772248,
+      "checksum": 524931
+    },
+    {
+      "time_s": 0.0013202999980421737,
+      "ops": 132877.1237954945,
+      "ops_per_sec": 100641614.77886336,
+      "checksum": 417388
+    },
+    {
+      "time_s": 0.0013275999990582932,
+      "ops": 132877.1237954945,
+      "ops_per_sec": 100088222.27308546,
+      "checksum": 385861
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 require "json"
-require "gc"
 
 class SerializationTest
   attr_reader :name

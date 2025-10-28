@@ -1,2 +1,23 @@
--e:1:in '<main>': uninitialized constant RecursiveFibTest (NameError)
-Did you mean?  RecursiveFibonacciTest
+{
+  "name": "RecursiveFibonacci",
+  "runs": 3,
+  "median_time_sec": 0.003638199999841163,
+  "median_ops_per_sec": 274.8611951084762,
+  "raw": [
+    {
+      "time_s": 0.0036427999984880444,
+      "result": 46368,
+      "ops_per_sec": 274.51411013919324
+    },
+    {
+      "time_s": 0.003638199999841163,
+      "result": 46368,
+      "ops_per_sec": 274.8611951084762
+    },
+    {
+      "time_s": 0.0033695999991323333,
+      "result": 46368,
+      "ops_per_sec": 296.7711301808815
+    }
+  ]
+}
