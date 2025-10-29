@@ -35,7 +35,7 @@ class ListOpsTest:
         return s
 
     def run_once(self, iterations):
-        reps = max(1, iterations // 1000)
+        reps = max(1, iterations // 1000, 50)
         t0 = time.perf_counter()
         total = 0
 
@@ -77,7 +77,6 @@ class ListOpsTest:
         }
 
 if __name__ == "__main__":
-    os.makedirs("results", exist_ok=True)
     test = ListOpsTest()
     result = test.run()
     with open("results_list_ops_python.json", "w") as f:

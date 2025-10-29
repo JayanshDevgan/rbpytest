@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from compression_test import CompressionTestTest; res = CompressionTestTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\compression_test.py", line 38, in run
+    results.append(self.run_once(iterations))
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\compression_test.py", line 18, in run_once
+    compressed = zlib.compress(self.data)
+KeyboardInterrupt
+^C

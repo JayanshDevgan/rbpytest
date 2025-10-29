@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from string_concat import StringConcatTest; res = StringConcatTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\string_concat.py", line 48, in run
+    results = [self.run_once() for _ in range(runs)]
+               ~~~~~~~~~~~~~^^
+  File "C:\dev\rbpytest\python/tests\string_concat.py", line 23, in run_once
+    length_plus = self.concat_plus()
+  File "C:\dev\rbpytest\python/tests\string_concat.py", line 12, in concat_plus
+    s += "a"
+    ^
+KeyboardInterrupt
+^C

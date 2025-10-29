@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from list_ops import ListOpsTest; res = ListOpsTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\list_ops.py", line 63, in run
+    results.append(self.run_once(iterations))
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\list_ops.py", line 43, in run_once
+    total += self.workload()
+             ~~~~~~~~~~~~~^^
+  File "C:\dev\rbpytest\python/tests\list_ops.py", line 33, in workload
+    s += lst[random.randint(0, len(lst) - 1)]
+             ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\random.py", line 340, in randint
+    return self.randrange(a, b+1)
+           ~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Python313\Lib\random.py", line 295, in randrange
+    def randrange(self, start, stop=None, step=_ONE):
+    
+KeyboardInterrupt
+^C

@@ -44,8 +44,11 @@ class ThreadingTestTest:
             "ops_per_s": ops_per_s
         }
 
-    def run(self):
-        results = [self.run_once() for _ in range(self.runs)]
+    def run(self, runs=None, iterations=None):
+        if runs is None:
+            runs = self.runs
+
+        results = [self.run_once() for _ in range(runs)]
         times = sorted(r["total_time_s"] for r in results)
         ops = sorted(r["ops_per_s"] for r in results)
         avg_thread_times = sorted(r["avg_thread_time_s"] for r in results)
@@ -53,7 +56,7 @@ class ThreadingTestTest:
 
         return {
             "name": self.name,
-            "runs": self.runs,
+            "runs": runs,
             "threads": self.threads,
             "median_total_time_s": times[mid],
             "median_avg_thread_time_s": avg_thread_times[mid],

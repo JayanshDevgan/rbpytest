@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from logic_control import LogicControlTest; res = LogicControlTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\logic_control.py", line 42, in run
+    results.append(self.run_once(iterations))
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\logic_control.py", line 26, in run_once
+    acc += self.workload()
+           ~~~~~~~~~~~~~^^
+  File "C:\dev\rbpytest\python/tests\logic_control.py", line 18, in workload
+    acc += (i & 1)
+    ^^^
+KeyboardInterrupt
+^C

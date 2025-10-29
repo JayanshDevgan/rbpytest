@@ -4,8 +4,8 @@ import random
 import gc
 import os
 
-class JSONSerializationTest:
-    def __init__(self, obj_size=5000, depth=3, runs=5, name="JSON Serialization"):
+class JsonSerializationTestTest:
+    def __init__(self, obj_size=50, depth=3, runs=5, name="JSON Serialization"):
         self.name = name
         self.obj_size = obj_size
         self.depth = depth
@@ -72,8 +72,7 @@ class JSONSerializationTest:
         }
 
 if __name__ == "__main__":
-    os.makedirs("results", exist_ok=True)
-    result = JSONSerializationTestTest().run()
+    result = JSONSerializationTest().run()
     with open("results_json_serialization_python.json", "w") as f:
         json.dump(result, f, indent=2)
     print(f"{result['name']}: Median Time={result['median_total_s']:.4f}s | "

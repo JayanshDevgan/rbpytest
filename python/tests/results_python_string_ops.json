@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from string_ops import StringOpsTest; res = StringOpsTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\string_ops.py", line 39, in run
+    results = [self.run_once(iterations) for _ in range(runs)]
+               ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\string_ops.py", line 24, in run_once
+    total_len += self.workload()
+                 ~~~~~~~~~~~~~^^
+  File "C:\dev\rbpytest\python/tests\string_ops.py", line 13, in workload
+    s += str(_)
+         ~~~^^^
+KeyboardInterrupt
+^C

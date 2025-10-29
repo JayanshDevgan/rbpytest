@@ -30,7 +30,11 @@ class MatrixMultiplicationTestTest:
         ops = (self.size ** 3) / (duration if duration > 0 else 1e-9)
         return {"time_s": duration, "ops_per_sec": ops}
 
-    def run(self):
+    def run(self, runs=None, iterations=None):
+        # Keep backward compatibility with external test harness
+        if runs is not None:
+            self.runs = runs
+
         results = [self.run_once() for _ in range(self.runs)]
         times = sorted(r["time_s"] for r in results)
         ops = sorted(r["ops_per_sec"] for r in results)

@@ -4,7 +4,7 @@ import json
 import tempfile
 import gc
 
-class FileIOTestTest:
+class FileIoTest:
     def __init__(self, size_mb=50, name="FileIOTest"):
         self.name = name
         self.size_mb = size_mb
@@ -40,10 +40,8 @@ class FileIOTestTest:
         }
 
     def run(self, runs=None, iterations=None):
-        # iterations isn't used here but included for cross-language uniformity
         if runs is None:
             runs = 3
-
         results = []
         for _ in range(runs):
             results.append(self.run_once())
@@ -61,8 +59,7 @@ class FileIOTestTest:
         }
 
 if __name__ == "__main__":
-    res = FileIOTestTest().run()
-    os.makedirs("results", exist_ok=True)
+    res = FileIoTest().run()
     with open("results_file_io_test_python.json", "w") as f:
         json.dump(res, f, indent=2)
     print(f"{res['name']}: Write={res['avg_write_MBps']:.2f} MB/s | Read={res['avg_read_MBps']:.2f} MB/s")

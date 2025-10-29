@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json, sys; sys.path.insert(0, 'python/tests'); from memory_access import MemoryAccessTest; res = MemoryAccessTest(10000000).run(runs=5, iterations=10000000); print(json.dumps(res))
+                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\memory_access.py", line 43, in run
+    results = [self.run_once(iterations) for _ in range(runs)]
+               ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\memory_access.py", line 26, in run_once
+    acc += self.workload(10_000)
+           ~~~~~~~~~~~~~^^^^^^^^
+  File "C:\dev\rbpytest\python/tests\memory_access.py", line 15, in workload
+    random.shuffle(indices)
+    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python313\Lib\random.py", line 360, in shuffle
+    j = randbelow(i + 1)
+  File "C:\Python313\Lib\random.py", line 245, in _randbelow_with_getrandbits
+    def _randbelow_with_getrandbits(self, n):
+    
+KeyboardInterrupt
+^C

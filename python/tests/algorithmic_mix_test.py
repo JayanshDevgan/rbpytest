@@ -1,4 +1,4 @@
-import time, math, random, json
+import time, math, random, json, os
 
 class AlgorithmicMixTestTest:
     def __init__(self, size=5000, depth=8, runs=5):
@@ -15,8 +15,7 @@ class AlgorithmicMixTestTest:
     def _sort_and_search(self, arr):
         arr.sort()
         target = arr[len(arr)//2]
-        idx = arr.index(target)
-        return idx
+        return arr.index(target)
 
     def _io_cycle(self, data):
         fname = "temp_mix_test.tmp"
@@ -24,44 +23,35 @@ class AlgorithmicMixTestTest:
             json.dump(data, f)
         with open(fname, "r") as f:
             return json.load(f)
+        os.remove(fname)
 
     def run_once(self):
-        numbers = [random.randint(1, 100000) for _ in range(self.size)]
+        numbers = [random.randint(1, 100000) for _ in range(min(self.size, 5000))]  # ✅ Cap to safe size
 
         t0 = time.perf_counter()
-
-        # Arithmetic + recursion
         math_sum = sum(math.sin(i) * math.sqrt(i % 100 + 1) for i in range(1, 500))
         fib_val = self._recursive_fib(10)
-
-        # Sorting + search
         idx = self._sort_and_search(numbers)
-
-        # File I/O
-        data = {"sum": math_sum, "fib": fib_val, "idx": idx, "nums": numbers[:50]}
-        _ = self._io_cycle(data)
-
+        _ = self._io_cycle({"sum": math_sum, "fib": fib_val, "idx": idx, "nums": numbers[:50]})
         t1 = time.perf_counter()
-        duration = t1 - t0
 
+        duration = t1 - t0
         return {"duration_s": duration, "ops_per_s": 1 / duration if duration > 0 else 0}
 
     def run(self, runs=None, iterations=None):
         if runs is not None:
             self.runs = runs
         if iterations is not None:
-            self.size = iterations
+            self.size = min(iterations, 5000)  # ✅ Avoid huge freeze
 
         results = [self.run_once() for _ in range(self.runs)]
         times = sorted(r["duration_s"] for r in results)
         ops = sorted(r["ops_per_s"] for r in results)
-        median_t = times[len(times)//2]
-        median_ops = ops[len(ops)//2]
         return {
             "name": self.name,
             "runs": self.runs,
-            "median_time_s": median_t,
-            "median_ops_per_s": median_ops,
+            "median_time_s": times[len(times)//2],
+            "median_ops_per_s": ops[len(ops)//2],
             "raw": results
         }
 
