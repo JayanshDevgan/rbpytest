@@ -1,7 +1,7 @@
 require "json"
 require "time"
 
-class ThreadingTest
+class ThreadingTestTest
   attr_reader :name
 
   def initialize(threads = 8, work_size = 2_000_000)
@@ -18,7 +18,7 @@ class ThreadingTest
     s
   end
 
-  def run
+  def single_run
     results = Array.new(@threads, 0.0)
     threads = []
 
@@ -41,18 +41,45 @@ class ThreadingTest
     ops_per_s = @work_size / (total_time > 0 ? total_time : 1e-9)
 
     {
-      "name" => @name,
-      "threads" => @threads,
       "total_time_s" => total_time,
       "avg_thread_time_s" => avg_thread_time,
       "ops_per_s" => ops_per_s
     }
   end
+
+  def run(runs = 3, _initialize = nil)
+    results = Array.new(runs) { single_run }
+    valid_results = results.reject { |r| r.nil? || r.empty? }
+
+    if valid_results.empty?
+      return { "name" => @name, "error" => "All runs failed" }
+    end
+
+    total_times = valid_results.map { |r| r["total_time_s"] }.sort
+    avg_thread_times = valid_results.map { |r| r["avg_thread_time_s"] }.sort
+    ops_per_ss = valid_results.map { |r| r["ops_per_s"] }.sort
+    median_idx = valid_results.size / 2
+
+    {
+      "name" => @name,
+      "threads" => @threads,
+      "runs" => runs,
+      "median_total_time_s" => total_times[median_idx],
+      "median_avg_thread_time_s" => avg_thread_times[median_idx],
+      "median_ops_per_s" => ops_per_ss[median_idx],
+      "raw" => results
+    }
+  rescue Interrupt
+    { "name" => @name, "error" => "Interrupted during test" }
+  end
 end
 
 if __FILE__ == $0
-  test = ThreadingTest.new
+  test = ThreadingTestTest.new
   result = test.run
-  File.write("results_threading_ruby.json", JSON.pretty_generate(result))
+  timestamp = Time.now.strftime('%Y%m%d_%H%M%S')
+  filename = "results_threading_ruby_#{timestamp}.json"
+  File.write(filename, JSON.pretty_generate(result))
+  puts "Results saved to #{filename}"
   puts JSON.pretty_generate(result)
 end

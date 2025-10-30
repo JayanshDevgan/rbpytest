@@ -25,7 +25,7 @@ class RecursiveFibonacciTest
     }
   end
 
-  def run(runs = 3)
+  def run(runs = 3, iterations = nil)
     results = Array.new(runs) { run_once }
     times = results.map { |r| r["time_s"] }.sort
     ops = results.map { |r| r["ops_per_sec"] }.sort

@@ -1,3 +1,4 @@
+require "json"
 require "time"
 
 class ArithmeticTest
@@ -7,7 +8,7 @@ class ArithmeticTest
     @name = "Arithmetic"
     @ops_per_iter = ops_per_iter
   end
-  
+
   def workload
     s_int = 0
     s_float = 0.0
@@ -43,6 +44,9 @@ class ArithmeticTest
       "acc_float" => acc_float,
       "gc_stat_after" => GC.stat
     }
+  rescue Interrupt
+    puts "\n[!] Arithmetic test interrupted — exiting safely."
+    exit
   end
 
   def run(runs = 5, iterations = nil)
@@ -67,5 +71,16 @@ class ArithmeticTest
       "median_ops_per_sec" => median_ops,
       "raw" => results
     }
+  end
+end
+
+if __FILE__ == $0
+  begin
+    test = ArithmeticTest.new
+    result = test.run
+    File.write("results_arithmetic_ruby.json", JSON.pretty_generate(result))
+    puts JSON.pretty_generate(result)
+  rescue Interrupt
+    puts "\n[!] Benchmark manually interrupted — partial data not saved."
   end
 end

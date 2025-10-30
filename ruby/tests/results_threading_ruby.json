@@ -1,7 +1,0 @@
-{
-  "name": "Threading / Concurrency",
-  "threads": 8,
-  "total_time_s": 0.4365447000018321,
-  "avg_thread_time_s": 0.0541842750003525,
-  "ops_per_s": 4581432.325238644
-}

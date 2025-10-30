@@ -3,19 +3,23 @@ import time, json, gc, tracemalloc
 class SerializationTestTest:
     name = "Serialization"
 
-    def __init__(self, ops_per_iter=100_000):
+    def __init__(self, ops_per_iter=1000):
         self.ops_per_iter = ops_per_iter
-        # Prepare sample data once to avoid skewed timing from setup cost
         self.sample_data = [
-            {"id": i, "name": f"Object_{i}", "value": i * 0.12345, "flag": i % 2 == 0}
-            for i in range(10_000)
+            {
+                "id": i,
+                "name": f"Object_{i}",
+                "nested": {"val": i * 0.12345, "flag": i % 2 == 0},
+                "tags": [f"tag_{j}" for j in range(5)],
+            }
+            for i in range(1000)
         ]
+        self.encoded = json.dumps(self.sample_data)
 
     def workload(self):
-        encoded = json.dumps(self.sample_data)
-        decoded = json.loads(encoded)
-        # Returning size processed to simulate measurable workload output
-        return len(encoded) + len(decoded)
+        decoded = json.loads(self.encoded)
+        encoded = json.dumps(decoded)
+        return len(encoded)
 
     def run_once(self, iterations):
         gc.collect()
@@ -27,21 +31,19 @@ class SerializationTestTest:
             total_size += self.workload()
 
         t1 = time.perf_counter()
-        current, peak = tracemalloc.get_traced_memory()
+        _, peak = tracemalloc.get_traced_memory()
         tracemalloc.stop()
 
         duration = t1 - t0
-        ops_done = iterations
-
         return {
             "time_s": duration,
-            "ops": ops_done,
-            "ops_per_sec": ops_done / duration if duration > 0 else float("inf"),
+            "ops": iterations,
+            "ops_per_sec": iterations / duration if duration > 0 else float("inf"),
             "mem_peak_bytes": peak,
-            "size_processed": total_size
+            "size_processed": total_size,
         }
 
-    def run(self, runs=5, iterations=None):
+    def run(self, runs=3, iterations=None):
         if iterations is None:
             iterations = self.ops_per_iter
 
@@ -57,9 +59,9 @@ class SerializationTestTest:
             "median_time_s": times[mid],
             "median_ops_per_sec": ops[mid],
             "median_peak_mem_bytes": peaks[mid],
-            "raw": results
+            "raw": results,
         }
 
 if __name__ == "__main__":
-    result = SerializationTestTest().run()
+    result = SerializationTestTest(ops_per_iter=200).run(runs=5)
     print(json.dumps(result, indent=2))

@@ -1,2 +1,0 @@
--e:1:in '<main>': uninitialized constant MatrixMultiplicationTestTest (NameError)
-{"test_name":"Matrix Multiplication Test","median_ops_per_sec":3134347.997006131}

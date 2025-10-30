@@ -3,10 +3,10 @@ require "json"
 class SerializationTest
   attr_reader :name
 
-  def initialize(ops_per_iter = 100_000)
+  def initialize(ops_per_iter = 1000)
     @name = "Serialization"
     @ops_per_iter = ops_per_iter
-    @sample_data = Array.new(10_000) do |i|
+    @sample_data = Array.new(1000) do |i|
       { id: i, name: "Object_#{i}", value: i * 0.12345, flag: i.even? }
     end
   end

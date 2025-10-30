@@ -1,2 +1,0 @@
-C:/dev/rbpytest/ruby/tests/string_concat.rb:38:in 'run': wrong number of arguments (given 2, expected 0..1) (ArgumentError)
-	from -e:1:in '<main>'

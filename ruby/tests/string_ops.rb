@@ -3,18 +3,18 @@ require "json"
 class StringOpsTest
   attr_reader :name
 
-  def initialize(ops_per_iter = 500_000)
+  def initialize(ops_per_iter = 100_000)
     @name = "StringOps"
     @ops_per_iter = ops_per_iter
   end
 
   def workload
-    s = "benchmark"
-    100.times do |i|
-      s += i.to_s
-      s = s.reverse
-      s = s.gsub("a", "A")
-      s.index("b")
+    s = +"benchmark" # mutable string
+    20.times do |i|
+      s << i.to_s          # faster append (no reallocation)
+      s.reverse!           # in-place reverse
+      s.gsub!("a", "A")    # in-place substitution
+      s.index("b")         # just a small operation
     end
     s.length
   end
@@ -23,11 +23,12 @@ class StringOpsTest
     GC.start
     t0 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
     total_len = 0
-    (iterations / 100).times do
+
+    (iterations / 20).times do
       total_len += workload
     end
-    t1 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 
+    t1 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
     duration = t1 - t0
     ops_done = iterations
 
@@ -42,8 +43,7 @@ class StringOpsTest
 
   def run(runs = 5, iterations = nil)
     iterations ||= @ops_per_iter
-    results = []
-    runs.times { results << run_once(iterations) }
+    results = Array.new(runs) { run_once(iterations) }
 
     times = results.map { |r| r["time_s"] }.sort
     ops = results.map { |r| r["ops_per_sec"] }.sort
@@ -60,6 +60,6 @@ end
 
 if __FILE__ == $0
   result = StringOpsTest.new.run
-  File.open("string_ops_ruby.json", "w") { |f| f.write(JSON.pretty_generate(result)) }
+  File.write("string_ops_ruby.json", JSON.pretty_generate(result))
   puts JSON.pretty_generate(result)
 end

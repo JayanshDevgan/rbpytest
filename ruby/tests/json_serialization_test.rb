@@ -5,7 +5,7 @@ require "securerandom"
 class JSONSerializationTest
   attr_reader :name
 
-  def initialize(obj_size = 5000, depth = 3, runs = 5)
+  def initialize(obj_size = 50, depth = 3, runs = 5)
     @name = "JSON Serialization"
     @obj_size = obj_size
     @depth = depth
@@ -53,7 +53,7 @@ class JSONSerializationTest
     ops = results.map { |r| r["ops_per_s"] }.sort
     median_t = totals[totals.size / 2]
     median_ops = ops[ops.size / 2]
-
+    iterations = nil
     {
       "name" => @name,
       "runs" => @runs,

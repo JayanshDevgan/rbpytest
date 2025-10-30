@@ -36,7 +36,7 @@ class FileIOTest
     }
   end
 
-  def run(runs = 3)
+  def run(runs = 3, iterations = nil)
     results = Array.new(runs) { run_once }
     avg_write = results.sum { |r| r["write_MBps"] } / runs
     avg_read  = results.sum { |r| r["read_MBps"] } / runs

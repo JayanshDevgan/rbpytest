@@ -3,7 +3,7 @@ import time, json, tracemalloc, gc
 class StringConcatTest:
     name = "StringConcat"
 
-    def __init__(self, n=500_000):
+    def __init__(self, n=50_000):
         self.n = n
 
     def concat_plus(self):
@@ -64,3 +64,6 @@ class StringConcatTest:
 
 if __name__ == "__main__":
     result = StringConcatTest(500_000).run()
+    with open("string_concat_python.json", "w") as f:
+        json.dump(result, f, indent=2)
+    print(json.dumps(result, indent=2))
