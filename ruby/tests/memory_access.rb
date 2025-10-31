@@ -1,4 +1,5 @@
 require "time"
+require "json"
 
 class MemoryAccessTest
   attr_reader :name
@@ -51,4 +52,11 @@ class MemoryAccessTest
       "raw" => results
     }
   end
+end
+
+if __FILE__ == $0
+  test = MemoryAccessTest.new(24)
+  result = test.run
+  File.write("results_ruby_memory_access.json", JSON.pretty_generate(result))
+  puts JSON.pretty_generate(result)
 end

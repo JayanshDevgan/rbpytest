@@ -1,4 +1,5 @@
-import time, threading, json, gc
+import time, json, gc
+from concurrent.futures import ThreadPoolExecutor
 
 class ThreadingTestTest:
     name = "Threading / Concurrency"
@@ -14,24 +15,20 @@ class ThreadingTestTest:
             s += (i * i) % 97
         return s
 
-    def thread_worker(self, results, idx):
+    def thread_task(self):
         start = time.perf_counter()
         self.cpu_bound_work(self.work_size // self.threads)
         end = time.perf_counter()
-        results[idx] = end - start
+        return end - start
 
     def run_once(self):
         gc.collect()
-        results = [0.0] * self.threads
-        threads = []
 
         t0 = time.perf_counter()
-        for i in range(self.threads):
-            t = threading.Thread(target=self.thread_worker, args=(results, i))
-            t.start()
-            threads.append(t)
-        for t in threads:
-            t.join()
+
+        with ThreadPoolExecutor(max_workers=self.threads) as pool:
+            results = list(pool.map(lambda _: self.thread_task(), range(self.threads)))
+
         t1 = time.perf_counter()
 
         total_time = t1 - t0
@@ -50,8 +47,9 @@ class ThreadingTestTest:
 
         results = [self.run_once() for _ in range(runs)]
         times = sorted(r["total_time_s"] for r in results)
-        ops = sorted(r["ops_per_s"] for r in results)
-        avg_thread_times = sorted(r["avg_thread_time_s"] for r in results)
+        ops   = sorted(r["ops_per_s"] for r in results)
+        avg_t = sorted(r["avg_thread_time_s"] for r in results)
+
         mid = len(times) // 2
 
         return {
@@ -59,13 +57,13 @@ class ThreadingTestTest:
             "runs": runs,
             "threads": self.threads,
             "median_total_time_s": times[mid],
-            "median_avg_thread_time_s": avg_thread_times[mid],
+            "median_avg_thread_time_s": avg_t[mid],
             "median_ops_per_s": ops[mid],
             "raw": results
         }
 
 if __name__ == "__main__":
-    result = ThreadingTestTest(threads=8, work_size=2_000_000, runs=3).run()
+    result = ThreadingTestTest().run()
     with open("results_python_threading.json", "w") as f:
         json.dump(result, f, indent=2)
     print(json.dumps(result, indent=2))

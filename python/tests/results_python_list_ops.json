@@ -1,0 +1,63 @@
+{
+  "name": "ListOps",
+  "runs": 5,
+  "median_time_s": 2.1096919999999955,
+  "median_ops_per_sec": 474002.84022501967,
+  "raw": [
+    {
+      "time_s": 2.0900305000000117,
+      "ops": 1000000,
+      "ops_per_sec": 478461.91718254564,
+      "acc": 2274660231,
+      "gc_stat_after": {
+        "collections": 0,
+        "collected": 0,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 2.1876938000000337,
+      "ops": 1000000,
+      "ops_per_sec": 457102.3604857246,
+      "acc": 2276660379,
+      "gc_stat_after": {
+        "collections": 1,
+        "collected": 87,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 2.1096919999999955,
+      "ops": 1000000,
+      "ops_per_sec": 474002.84022501967,
+      "acc": 2276593263,
+      "gc_stat_after": {
+        "collections": 2,
+        "collected": 87,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 2.1009685999999874,
+      "ops": 1000000,
+      "ops_per_sec": 475970.94026060455,
+      "acc": 2275761759,
+      "gc_stat_after": {
+        "collections": 3,
+        "collected": 87,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 2.121487399999978,
+      "ops": 1000000,
+      "ops_per_sec": 471367.40006092435,
+      "acc": 2275312810,
+      "gc_stat_after": {
+        "collections": 4,
+        "collected": 87,
+        "uncollectable": 0
+      }
+    }
+  ]
+}

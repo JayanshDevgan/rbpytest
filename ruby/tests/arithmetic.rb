@@ -78,7 +78,7 @@ if __FILE__ == $0
   begin
     test = ArithmeticTest.new
     result = test.run
-    File.write("results_arithmetic_ruby.json", JSON.pretty_generate(result))
+    File.write("results_python_arithmetic_ruby.json", JSON.pretty_generate(result))
     puts JSON.pretty_generate(result)
   rescue Interrupt
     puts "\n[!] Benchmark manually interrupted — partial data not saved."

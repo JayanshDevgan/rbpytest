@@ -2,7 +2,7 @@ require 'json'
 require 'zlib'
 GC.enable
 
-class CompressionTest
+class CompressionTestTest
     def initialize(name = "CompressionTest")
         @name = name
         @ops_per_iter = 1000
@@ -43,6 +43,6 @@ class CompressionTest
 end
 
 if __FILE__ == $0
-    result = CompressionTest.new.run
+    result = CompressionTestTest.new.run
     puts JSON.pretty_generate(result)
 end

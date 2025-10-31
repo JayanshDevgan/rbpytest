@@ -50,6 +50,6 @@ class MatrixMultiplicationTestTest:
 
 if __name__ == "__main__":
     result = MatrixMultiplicationTestTest().run()
-    with open("results_matrix_multiplication_python.json", "w") as f:
+    with open("results_python_matrix_multiplication.json", "w") as f:
         json.dump(result, f, indent=2)
     print(json.dumps(result, indent=2))

@@ -55,6 +55,8 @@ class SerializationTest
   end
 end
 
+SerializationTestTest = SerializationTest
+
 if __FILE__ == $0
   require "json"
   puts JSON.pretty_generate(SerializationTest.new.run)

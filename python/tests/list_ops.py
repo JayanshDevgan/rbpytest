@@ -79,7 +79,7 @@ class ListOpsTest:
 if __name__ == "__main__":
     test = ListOpsTest()
     result = test.run()
-    with open("results_list_ops_python.json", "w") as f:
+    with open("results_python_list_ops.json", "w") as f:
         json.dump(result, f, indent=2)
     print(f"{result['name']}: Median Time={result['median_time_s']:.4f}s | "
           f"Ops/sec={result['median_ops_per_sec']:.2f}")

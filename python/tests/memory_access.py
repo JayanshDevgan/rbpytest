@@ -1,4 +1,4 @@
-import time, tracemalloc, random
+import time, tracemalloc, random, json
 
 class MemoryAccessTest:
     name = "MemoryAccess"
@@ -53,3 +53,9 @@ class MemoryAccessTest:
             "median_peak_mem_bytes": peak_mem[mid],
             "raw": results
         }
+    
+if __name__ == "__main__":
+    result = MemoryAccessTest().run()
+    with open("results_python_compression_test.json", "w") as f:
+        json.dump(result, f, indent=4)
+    print(json.dumps(result, indent=4))

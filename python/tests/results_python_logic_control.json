@@ -1,0 +1,63 @@
+{
+  "name": "LogicControl",
+  "runs": 5,
+  "median_time_s": 0.5090889000000516,
+  "median_ops_per_sec": 19642934.662293732,
+  "raw": [
+    {
+      "time_s": 0.5337700000000041,
+      "ops": 10000000,
+      "ops_per_sec": 18734660.996309128,
+      "acc": 171800000,
+      "gc_stat_after": {
+        "collections": 0,
+        "collected": 0,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 0.5023432000000412,
+      "ops": 10000000,
+      "ops_per_sec": 19906709.19801279,
+      "acc": 171800000,
+      "gc_stat_after": {
+        "collections": 1,
+        "collected": 45,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 0.5090889000000516,
+      "ops": 10000000,
+      "ops_per_sec": 19642934.662293732,
+      "acc": 171800000,
+      "gc_stat_after": {
+        "collections": 2,
+        "collected": 45,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 0.5660109000000375,
+      "ops": 10000000,
+      "ops_per_sec": 17667504.283043556,
+      "acc": 171800000,
+      "gc_stat_after": {
+        "collections": 3,
+        "collected": 45,
+        "uncollectable": 0
+      }
+    },
+    {
+      "time_s": 0.4980489000001853,
+      "ops": 10000000,
+      "ops_per_sec": 20078349.73633368,
+      "acc": 171800000,
+      "gc_stat_after": {
+        "collections": 4,
+        "collected": 45,
+        "uncollectable": 0
+      }
+    }
+  ]
+}

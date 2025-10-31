@@ -72,7 +72,7 @@ class JsonSerializationTestTest:
         }
 
 if __name__ == "__main__":
-    result = JSONSerializationTest().run()
+    result = JsonSerializationTestTest().run()
     with open("results_json_serialization_python.json", "w") as f:
         json.dump(result, f, indent=2)
     print(f"{result['name']}: Median Time={result['median_total_s']:.4f}s | "
