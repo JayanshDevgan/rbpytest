@@ -2,24 +2,24 @@
   "name": "Threading / Concurrency",
   "runs": 3,
   "threads": 8,
-  "median_total_time_s": 0.19740730000012263,
-  "median_avg_thread_time_s": 0.0529956125001263,
-  "median_ops_per_sec": 10131337.594905343,
+  "median_total_time_s": 0.14957260000119277,
+  "median_avg_thread_time_s": 0.028981800000110525,
+  "median_ops_per_s": 13371433.002996879,
   "raw": [
     {
-      "total_time_s": 0.23516560000098252,
-      "avg_thread_time_s": 0.06167800000025636,
-      "ops_per_s": 8504645.237193042
+      "total_time_s": 0.15461800000048243,
+      "avg_thread_time_s": 0.034004699999741206,
+      "ops_per_s": 12935104.580280174
     },
     {
-      "total_time_s": 0.18123559999912686,
-      "avg_thread_time_s": 0.042896800000335134,
-      "ops_per_s": 11035359.498959562
+      "total_time_s": 0.14957260000119277,
+      "avg_thread_time_s": 0.02480281250018379,
+      "ops_per_s": 13371433.002996879
     },
     {
-      "total_time_s": 0.19740730000012263,
-      "avg_thread_time_s": 0.0529956125001263,
-      "ops_per_s": 10131337.594905343
+      "total_time_s": 0.13862220000009984,
+      "avg_thread_time_s": 0.028981800000110525,
+      "ops_per_s": 14427703.499140538
     }
   ]
 }

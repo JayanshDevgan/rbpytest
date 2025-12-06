@@ -1,27 +1,27 @@
 {
   "name": "RecursiveFibonacci",
   "runs": 3,
-  "median_time_sec": 0.012522300001364783,
-  "median_ops_per_sec": 79.8575341503567,
+  "median_time_sec": 0.010125200000402401,
+  "median_ops_per_sec": 98.76348121126077,
   "median_peak_mem_bytes": 224,
   "raw": [
     {
-      "time_s": 0.014481199999863748,
+      "time_s": 0.01577749999887601,
       "result": 46368,
       "mem_peak_bytes": 224,
-      "ops_per_sec": 69.05505068705693
+      "ops_per_sec": 63.381397564331486
     },
     {
-      "time_s": 0.012522300001364783,
+      "time_s": 0.010125200000402401,
       "result": 46368,
       "mem_peak_bytes": 224,
-      "ops_per_sec": 79.8575341503567
+      "ops_per_sec": 98.76348121126077
     },
     {
-      "time_s": 0.010245800000120653,
+      "time_s": 0.01012310000078287,
       "result": 46368,
       "mem_peak_bytes": 224,
-      "ops_per_sec": 97.60096820045523
+      "ops_per_sec": 98.78396932981646
     }
   ]
 }

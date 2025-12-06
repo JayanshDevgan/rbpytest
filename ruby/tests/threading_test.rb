@@ -78,7 +78,7 @@ if __FILE__ == $0
   test = ThreadingTestTest.new
   result = test.run
   timestamp = Time.now.strftime('%Y%m%d_%H%M%S')
-  filename = "results_threading_ruby_#{timestamp}.json"
+  filename = "results_threading_ruby.json"
   File.write(filename, JSON.pretty_generate(result))
   puts "Results saved to #{filename}"
   puts JSON.pretty_generate(result)

@@ -1,13 +1,13 @@
 {
   "name": "StringOps",
   "runs": 5,
-  "median_time_sec": 0.1578759000003629,
-  "median_ops_per_sec": 3167044.4950676495,
+  "median_time_sec": 0.16005439999935334,
+  "median_ops_per_sec": 3123937.861139838,
   "raw": [
     {
-      "time_s": 0.16400910000083968,
+      "time_s": 0.1778797000006307,
       "ops": 500000,
-      "ops_per_sec": 3048611.3270388055,
+      "ops_per_sec": 2810888.482486912,
       "gc_stat_after": [
         {
           "collections": 4,
@@ -28,9 +28,9 @@
       "total_len": 995000
     },
     {
-      "time_s": 0.15760360000058427,
+      "time_s": 0.1588930000016262,
       "ops": 500000,
-      "ops_per_sec": 3172516.3638276435,
+      "ops_per_sec": 3146771.7268531825,
       "gc_stat_after": [
         {
           "collections": 4,
@@ -51,9 +51,9 @@
       "total_len": 995000
     },
     {
-      "time_s": 0.15781419999984792,
+      "time_s": 0.16005439999935334,
       "ops": 500000,
-      "ops_per_sec": 3168282.702066619,
+      "ops_per_sec": 3123937.861139838,
       "gc_stat_after": [
         {
           "collections": 4,
@@ -74,9 +74,9 @@
       "total_len": 995000
     },
     {
-      "time_s": 0.1578759000003629,
+      "time_s": 0.15750520000074175,
       "ops": 500000,
-      "ops_per_sec": 3167044.4950676495,
+      "ops_per_sec": 3174498.365753291,
       "gc_stat_after": [
         {
           "collections": 4,
@@ -97,9 +97,9 @@
       "total_len": 995000
     },
     {
-      "time_s": 0.17708350000066275,
+      "time_s": 0.166592400000809,
       "ops": 500000,
-      "ops_per_sec": 2823526.7543171933,
+      "ops_per_sec": 3001337.3959290576,
       "gc_stat_after": [
         {
           "collections": 4,

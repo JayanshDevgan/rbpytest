@@ -64,7 +64,7 @@ if __FILE__ == $0
   test = StringConcatTest.new(50_000)
   result = test.run
   timestamp = Time.now.strftime('%Y%m%d_%H%M%S')
-  filename = "results_ruby_string_concat_#{timestamp}.json"
+  filename = "results_ruby_string_concat.json"
   File.write(filename, JSON.pretty_generate(result))
   puts "Results saved to #{filename}"
   puts JSON.pretty_generate(result)
