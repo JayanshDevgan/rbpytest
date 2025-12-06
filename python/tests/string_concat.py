@@ -64,6 +64,6 @@ class StringConcatTest:
 
 if __name__ == "__main__":
     result = StringConcatTest(500_000).run()
-    with open("string_concat_python.json", "w") as f:
+    with open("results_string_concat_python.json", "w") as f:
         json.dump(result, f, indent=2)
     print(json.dumps(result, indent=2))

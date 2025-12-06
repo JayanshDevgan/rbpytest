@@ -1,0 +1,30 @@
+{
+  "name": "StringConcat",
+  "runs": 3,
+  "median_total_time_s": 1.4452731999999742,
+  "median_plus_time_s": 1.44392710000011,
+  "median_join_time_s": 0.0018905000006270711,
+  "raw": [
+    {
+      "plus_time_s": 1.5631897999992361,
+      "join_time_s": 0.0026010999999925843,
+      "total_time_s": 1.5657908999992287,
+      "length_plus": 50000,
+      "length_join": 50000
+    },
+    {
+      "plus_time_s": 1.3313493999994535,
+      "join_time_s": 0.0018905000006270711,
+      "total_time_s": 1.3332399000000805,
+      "length_plus": 50000,
+      "length_join": 50000
+    },
+    {
+      "plus_time_s": 1.44392710000011,
+      "join_time_s": 0.0013460999998642365,
+      "total_time_s": 1.4452731999999742,
+      "length_plus": 50000,
+      "length_join": 50000
+    }
+  ]
+}

@@ -51,7 +51,7 @@ class AlgorithmicMixTestTest:
             "name": self.name,
             "runs": self.runs,
             "median_time_s": times[len(times)//2],
-            "median_ops_per_s": ops[len(ops)//2],
+            "median_ops_per_sec": ops[len(ops)//2],
             "raw": results
         }
 
