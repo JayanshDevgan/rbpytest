@@ -6,10 +6,12 @@ class FileIOTest
   attr_reader :name
 
   def initialize(size_mb = 50)
-    @name = "File I/O"
+    @name = "File IO"
     @size_mb = size_mb
     @min_free_mb = size_mb * 2
   end
+
+  attr_reader :name
 
   # Cross-platform free disk space
   def free_space_mb(dir)

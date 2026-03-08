@@ -1,0 +1,44 @@
+{
+  "name": "SortingBenchmark",
+  "runs": 5,
+  "median_time_sec": 0.009150665951892734,
+  "median_ops_per_sec": 15299432.930457072,
+  "median_peak_mem_bytes": 445240,
+  "raw": [
+    {
+      "time_s": 0.009179458022117615,
+      "ops": 140000,
+      "ops_per_sec": 15251445.092147533,
+      "mem_peak_bytes": 445304,
+      "checksum": 521641
+    },
+    {
+      "time_s": 0.010343125090003014,
+      "ops": 140000,
+      "ops_per_sec": 13535560.943308596,
+      "mem_peak_bytes": 445208,
+      "checksum": 490819
+    },
+    {
+      "time_s": 0.008937541977502406,
+      "ops": 140000,
+      "ops_per_sec": 15664262.092688147,
+      "mem_peak_bytes": 445192,
+      "checksum": 514137
+    },
+    {
+      "time_s": 0.009150665951892734,
+      "ops": 140000,
+      "ops_per_sec": 15299432.930457072,
+      "mem_peak_bytes": 445240,
+      "checksum": 544537
+    },
+    {
+      "time_s": 0.008864875067956746,
+      "ops": 140000,
+      "ops_per_sec": 15792664.750126978,
+      "mem_peak_bytes": 445320,
+      "checksum": 535476
+    }
+  ]
+}

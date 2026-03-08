@@ -1,4 +1,5 @@
 import time, json, gc
+from zipfile import Path
 
 class LogicControlTest:
     def __init__(self, ops_per_iter=10_000_000):
@@ -46,12 +47,7 @@ class LogicControlTest:
         return {
             "name": self.name,
             "runs": runs,
-            "median_time_s": times[len(times)//2],
+            "median_time_sec": times[len(times)//2],
             "median_ops_per_sec": ops[len(ops)//2],
             "raw": results
         }
-
-if __name__ == "__main__":
-    test = LogicControlTest()
-    result = test.run()
-    print(json.dumps(result, indent=2))

@@ -1,0 +1,30 @@
+{
+  "name": "Serialization",
+  "runs": 3,
+  "median_time_sec": 17.9658227909822,
+  "median_ops_per_sec": 55.66124143793414,
+  "median_peak_mem_bytes": 963446,
+  "raw": [
+    {
+      "time_s": 18.077303334022872,
+      "ops": 1000,
+      "ops_per_sec": 55.31798529473825,
+      "mem_peak_bytes": 963446,
+      "size_processed": 135044000
+    },
+    {
+      "time_s": 17.9658227909822,
+      "ops": 1000,
+      "ops_per_sec": 55.66124143793414,
+      "mem_peak_bytes": 963446,
+      "size_processed": 135044000
+    },
+    {
+      "time_s": 17.65633108408656,
+      "ops": 1000,
+      "ops_per_sec": 56.63690804378312,
+      "mem_peak_bytes": 963446,
+      "size_processed": 135044000
+    }
+  ]
+}

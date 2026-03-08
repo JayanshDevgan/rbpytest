@@ -10,6 +10,8 @@ class RecursiveFibTest
     @memo = {}
   end
 
+  attr_reader :name
+
   # ✅ Safe recursive Fibonacci with memoization
   def fib(x)
     return x if x < 2

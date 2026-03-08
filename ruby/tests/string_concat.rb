@@ -9,6 +9,8 @@ class StringConcatTest
     @n = n
   end
 
+  attr_reader :name
+
   def concat_plus
     s = ""
     @n.times { s += "a" }

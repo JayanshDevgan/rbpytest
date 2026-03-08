@@ -1,0 +1,25 @@
+{
+  "name": "Threading / Concurrency",
+  "threads": 8,
+  "runs": 3,
+  "median_total_time_s": 0.818520300000273,
+  "median_avg_thread_time_s": 0.1715900500000771,
+  "median_ops_per_sec": 2443433.5959649784,
+  "raw": [
+    {
+      "total_time_s": 1.1649735000000874,
+      "avg_thread_time_s": 0.4042885000001206,
+      "ops_per_s": 1716777.248581062
+    },
+    {
+      "total_time_s": 0.7770843000007517,
+      "avg_thread_time_s": 0.1715900500000771,
+      "ops_per_s": 2573723.3399234363
+    },
+    {
+      "total_time_s": 0.818520300000273,
+      "avg_thread_time_s": 0.10218187500004206,
+      "ops_per_s": 2443433.5959649784
+    }
+  ]
+}

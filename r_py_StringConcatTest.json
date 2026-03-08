@@ -1,0 +1,40 @@
+{
+  "name": "StringConcat",
+  "runs": 3,
+  "median_total_time_s": 0.012393957935273647,
+  "median_plus_time_s": 0.012116582947783172,
+  "median_join_time_s": 0.0002665420761331916,
+  "median_peak_mem_bytes": 450353,
+  "raw": [
+    {
+      "plus_time_s": 0.012116582947783172,
+      "join_time_s": 0.0002773749874904752,
+      "total_time_s": 0.012393957935273647,
+      "mem_peak_bytes": 450353,
+      "length_plus": 50000,
+      "length_join": 50000,
+      "ops_per_sec_plus": 4126575.9674552395,
+      "ops_per_sec_join": 180261387.12928092
+    },
+    {
+      "plus_time_s": 0.01180937490426004,
+      "join_time_s": 0.00026566709857434034,
+      "total_time_s": 0.01207504200283438,
+      "mem_peak_bytes": 450353,
+      "length_plus": 50000,
+      "length_join": 50000,
+      "ops_per_sec_plus": 4233924.352927716,
+      "ops_per_sec_join": 188205465.66856393
+    },
+    {
+      "plus_time_s": 0.01266599993687123,
+      "join_time_s": 0.0002665420761331916,
+      "total_time_s": 0.012932542013004422,
+      "mem_peak_bytes": 450353,
+      "length_plus": 50000,
+      "length_join": 50000,
+      "ops_per_sec_plus": 3947576.2078955965,
+      "ops_per_sec_join": 187587643.66724187
+    }
+  ]
+}

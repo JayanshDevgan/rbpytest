@@ -1,0 +1,23 @@
+{
+  "name": "RecursiveFibonacci",
+  "runs": 3,
+  "median_time_sec": 3.00002284348011e-06,
+  "median_ops_per_sec": 333330.79518820334,
+  "raw": [
+    {
+      "time_s": 7.00005330145359e-06,
+      "result": 6765,
+      "ops_per_sec": 142856.05508065858
+    },
+    {
+      "time_s": 3.00002284348011e-06,
+      "result": 6765,
+      "ops_per_sec": 333330.79518820334
+    },
+    {
+      "time_s": 3.00002284348011e-06,
+      "result": 6765,
+      "ops_per_sec": 333330.79518820334
+    }
+  ]
+}
