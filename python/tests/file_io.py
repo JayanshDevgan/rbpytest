@@ -1,11 +1,12 @@
 import os
+from pathlib import Path
 import time
 import json
 import tempfile
 import gc
 
-class FileIoTest:
-    def __init__(self, size_mb=50, name="FileIOTest"):
+class FileIOTest:
+    def __init__(self, size_mb=50, name="FileIO"):
         self.name = name
         self.size_mb = size_mb
         self.test_file = os.path.join(tempfile.gettempdir(), "41e0a8c7d0.cgv")
@@ -33,10 +34,13 @@ class FileIoTest:
             pass
 
         return {
+            "time_s": write_time + read_time,
+            "ops": self.size_mb,
             "write_time_s": write_time,
             "read_time_s": read_time,
             "write_MBps": self.size_mb / write_time if write_time > 0 else 0,
-            "read_MBps": self.size_mb / read_time if read_time > 0 else 0
+            "read_MBps": self.size_mb / read_time if read_time > 0 else 0,
+            "ops_per_sec": self.size_mb / (write_time + read_time)
         }
 
     def run(self, runs=None, iterations=None):
@@ -50,16 +54,16 @@ class FileIoTest:
         avg_write = sum(r["write_MBps"] for r in results) / runs
         avg_read = sum(r["read_MBps"] for r in results) / runs
 
+        times = sorted(r["time_s"] for r in results)
+        ops = sorted(r["ops_per_sec"] for r in results)
+        mid = len(times) // 2
+
         return {
             "name": self.name,
             "runs": runs,
             "avg_write_MBps": avg_write,
             "avg_read_MBps": avg_read,
+            "median_time_sec": times[mid],
+            "median_ops_per_sec": ops[mid],
             "raw": results
         }
-
-if __name__ == "__main__":
-    res = FileIoTest().run()
-    with open("results_file_io_test_python.json", "w") as f:
-        json.dump(res, f, indent=2)
-    print(f"{res['name']}: Write={res['avg_write_MBps']:.2f} MB/s | Read={res['avg_read_MBps']:.2f} MB/s")

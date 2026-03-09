@@ -1,0 +1,44 @@
+{
+    "name": "MemoryAccess",
+    "runs": 5,
+    "median_time_sec": 20.870916200001375,
+    "median_ops_per_sec": 239567.82500998545,
+    "median_peak_mem_bytes": 784076,
+    "raw": [
+        {
+            "time_s": 20.583836100000553,
+            "ops": 5000000,
+            "ops_per_sec": 242909.04648234474,
+            "mem_peak_bytes": 786540,
+            "acc": 0
+        },
+        {
+            "time_s": 20.763034399999015,
+            "ops": 5000000,
+            "ops_per_sec": 240812.58565945626,
+            "mem_peak_bytes": 784076,
+            "acc": 0
+        },
+        {
+            "time_s": 20.870916200001375,
+            "ops": 5000000,
+            "ops_per_sec": 239567.82500998545,
+            "mem_peak_bytes": 784076,
+            "acc": 0
+        },
+        {
+            "time_s": 21.618654899999456,
+            "ops": 5000000,
+            "ops_per_sec": 231281.73436915013,
+            "mem_peak_bytes": 784076,
+            "acc": 0
+        },
+        {
+            "time_s": 21.884700099999463,
+            "ops": 5000000,
+            "ops_per_sec": 228470.11734924905,
+            "mem_peak_bytes": 784076,
+            "acc": 0
+        }
+    ]
+}

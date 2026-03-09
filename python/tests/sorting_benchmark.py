@@ -45,13 +45,8 @@ class SortingBenchmarkTest:
         return {
             "name": self.name,
             "runs": runs,
-            "median_time_s": times[mid],
+            "median_time_sec": times[mid],
             "median_ops_per_sec": ops[mid],
             "median_peak_mem_bytes": peaks[mid],
             "raw": results
         }
-
-if __name__ == "__main__":
-    result = SortingBenchmarkTest(10_000).run()
-    with open("results_python_sorting_benchmark.json", "w") as f:
-        json.dump(result, f, indent=2)

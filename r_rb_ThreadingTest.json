@@ -1,0 +1,25 @@
+{
+  "name": "Threading",
+  "threads": 8,
+  "runs": 3,
+  "median_total_time_s": 0.110791000071913,
+  "median_avg_thread_time_s": 0.013828250026563182,
+  "median_ops_per_sec": 18052007.822854076,
+  "raw": [
+    {
+      "total_time_s": 0.11362800002098083,
+      "avg_thread_time_s": 0.014161500002956018,
+      "ops_per_s": 17601295.452095523
+    },
+    {
+      "total_time_s": 0.110791000071913,
+      "avg_thread_time_s": 0.013828250026563182,
+      "ops_per_s": 18052007.822854076
+    },
+    {
+      "total_time_s": 0.1104269998613745,
+      "avg_thread_time_s": 0.013774000020930544,
+      "ops_per_s": 18111512.605709814
+    }
+  ]
+}

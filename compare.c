@@ -135,8 +135,7 @@ double extract_ops(const char *filename)
     {
         char *pos = NULL;
 
-        if ((pos = strstr(line, "\"median_ops_per_sec\"")) ||
-            (pos = strstr(line, "\"median_ops_per_s\"")))
+        if ((pos = strstr(line, "\"median_ops_per_sec\"")))
         {
             char *colon = strchr(pos, ':');
             if (!colon)
@@ -289,9 +288,9 @@ void *worker_thread(void *arg)
 
 void print_table_header()
 {
-    printf("\n" COLOR_BOLD "=============================================================\n" COLOR_RESET);
-    printf("%-20s | %-15s | %-15s | Winner\n", "Category", "Python (ops/s)", "Ruby (ops/s)");
-    printf("=============================================================\n");
+    printf("\n" COLOR_BOLD "==================================================================================================\n" COLOR_RESET);
+    printf("%-28s | %15s | %15s | Winner\n", "Category", "Python (ops/s)", "Ruby (ops/s)");
+    printf("==================================================================================================\n");
 }
 
 void print_comparison_row(const char *name, double pyops, double rbops)
@@ -309,17 +308,17 @@ void print_comparison_row(const char *name, double pyops, double rbops)
 
     if (pyops < 0 && rbops < 0)
     {
-        printf("%-20s | %-15s | %-15s | %sNo Results%s\n", name, "N/A", "N/A", COLOR_YELLOW, COLOR_RESET);
+        printf("%-28s | %15s | %15s | %sNo Results%s\n", name, "N/A", "N/A", COLOR_YELLOW, COLOR_RESET);
         return;
     }
     else if (pyops < 0)
     {
-        printf("%-20s | %-15s | %s%-15s%s | %sRuby Only%s\n", name, "Missing", COLOR_GREEN, rbbuf, COLOR_RESET, COLOR_GREEN, COLOR_RESET);
+        printf("%-28s | %15s | %s%15s%s | %sRuby Only%s\n", name, "Missing", COLOR_GREEN, rbbuf, COLOR_RESET, COLOR_GREEN, COLOR_RESET);
         return;
     }
     else if (rbops < 0)
     {
-        printf("%-20s | %s%-15s%s | %-15s | %sPython Only%s\n", name, COLOR_GREEN, pybuf, COLOR_RESET, "Missing", COLOR_GREEN, COLOR_RESET);
+        printf("%-28s | %s%15s%s | %15s | %sPython Only%s\n", name, COLOR_GREEN, pybuf, COLOR_RESET, "Missing", COLOR_GREEN, COLOR_RESET);
         return;
     }
 
@@ -334,28 +333,28 @@ void print_comparison_row(const char *name, double pyops, double rbops)
 
     if (pyops / rbops >= 1.2)
     {
-        snprintf(pycol, sizeof(pycol), "%s%s%s", COLOR_GREEN, pybuf, COLOR_RESET);
-        snprintf(rbcol, sizeof(rbcol), "%s%s%s", COLOR_RED, rbbuf, COLOR_RESET);
+        snprintf(pycol, sizeof(pycol), "%s%15s%s", COLOR_GREEN, pybuf, COLOR_RESET);
+        snprintf(rbcol, sizeof(rbcol), "%s%15s%s", COLOR_RED, rbbuf, COLOR_RESET);
         winner = COLOR_GREEN "Python" COLOR_RESET;
     }
     else if (rbops / pyops >= 1.2)
     {
-        snprintf(pycol, sizeof(pycol), "%s%s%s", COLOR_RED, pybuf, COLOR_RESET);
-        snprintf(rbcol, sizeof(rbcol), "%s%s%s", COLOR_GREEN, rbbuf, COLOR_RESET);
+        snprintf(pycol, sizeof(pycol), "%s%15s%s", COLOR_RED, pybuf, COLOR_RESET);
+        snprintf(rbcol, sizeof(rbcol), "%s%15s%s", COLOR_GREEN, rbbuf, COLOR_RESET);
         winner = COLOR_GREEN "Ruby" COLOR_RESET;
     }
     else
     {
-        snprintf(pycol, sizeof(pycol), "%s%s%s", COLOR_YELLOW, pybuf, COLOR_RESET);
-        snprintf(rbcol, sizeof(rbcol), "%s%s%s", COLOR_YELLOW, rbbuf, COLOR_RESET);
+        snprintf(pycol, sizeof(pycol), "%s%15s%s", COLOR_YELLOW, pybuf, COLOR_RESET);
+        snprintf(rbcol, sizeof(rbcol), "%s%15s%s", COLOR_YELLOW, rbbuf, COLOR_RESET);
         winner = COLOR_YELLOW "Close" COLOR_RESET;
         diff = 0.0;
     }
 
     if (diff > 0.0)
-        printf("%-20s | %-15s | %-15s | %s (%.1f%% faster)\n", name, pycol, rbcol, winner, diff);
+        printf("%-28s | %s | %s | %s (%.1f%% faster)\n", name, pycol, rbcol, winner, diff);
     else
-        printf("%-20s | %-15s | %-15s | %s\n", name, pycol, rbcol, winner);
+        printf("%-28s | %s | %s | %s\n", name, pycol, rbcol, winner);
 }
 
 void run_json_compare_only()
@@ -365,11 +364,11 @@ void run_json_compare_only()
 
     char py_pattern[256], rb_pattern[256];
 #ifdef _WIN32
-    snprintf(py_pattern, sizeof(py_pattern), "results_python_*.json");
-    snprintf(rb_pattern, sizeof(rb_pattern), "results_ruby_*.json");
+    snprintf(py_pattern, sizeof(py_pattern), "r_py_*.json");
+    snprintf(rb_pattern, sizeof(rb_pattern), "r_rb_*.json");
 #else
-    snprintf(py_pattern, sizeof(py_pattern), "results_python_*.json");
-    snprintf(rb_pattern, sizeof(rb_pattern), "results_ruby_*.json");
+    snprintf(py_pattern, sizeof(py_pattern), "r_py_*.json");
+    snprintf(rb_pattern, sizeof(rb_pattern), "r_rb_*.json");
 #endif
 
     char basenames[MAX_TESTS][MAX_NAME];
@@ -388,8 +387,8 @@ void run_json_compare_only()
         testname[MAX_NAME - 1] = '\0';
 
         char out_py[512], out_rb[512];
-        snprintf(out_py, sizeof(out_py), "results_python_%s.json", testname);
-        snprintf(out_rb, sizeof(out_rb), "results_ruby_%s.json", testname);
+        snprintf(out_py, sizeof(out_py), "r_py_%s.json", testname);
+        snprintf(out_rb, sizeof(out_rb), "r_rb_%s.json", testname);
 
         double pyops = extract_ops(out_py);
         double rbops = extract_ops(out_rb);
@@ -397,43 +396,95 @@ void run_json_compare_only()
         print_comparison_row(testname, pyops, rbops);
     }
 
-    printf("=============================================================\n");
+    printf("==================================================================================================\n");
     printf(COLOR_GREEN "JSON summary completed.\n" COLOR_RESET);
 }
+
+typedef struct
+{
+    char testname[MAX_NAME];
+    double pyops;
+    double rbops;
+} test_result_t;
 
 int main(int argc, char *argv[])
 {
     init_mutex();
 
-    char py_pattern[256], rb_pattern[256];
-#ifndef _WIN32  
-    snprintf(py_pattern, sizeof(py_pattern), "python/tests/*.py");
-    snprintf(rb_pattern, sizeof(rb_pattern), "ruby/tests/*.rb");
-#else
-    snprintf(py_pattern, sizeof(py_pattern), "python\\tests\\*.py");
-    snprintf(rb_pattern, sizeof(rb_pattern), "ruby\\tests\\*.rb");
-#endif
+    // List all results files
+    char pattern[256];
 
-    char names[MAX_TESTS][MAX_NAME];
-    int count = list_files_shell(py_pattern, names, MAX_TESTS);
+    // ruby files in ruby/results and python in python/results
+    snprintf(pattern, sizeof(pattern), "r_*.json");
+
+    char filenames[MAX_TESTS][MAX_NAME];
+    int file_count = list_files_shell(pattern, filenames, MAX_TESTS);
+
+    test_result_t results[MAX_TESTS];
+    int result_count = 0;
+
+    for (int i = 0; i < file_count; ++i)
+    {
+        char *filename = filenames[i];
+        char testname[MAX_NAME];
+        char lang[8];
+
+        strcpy(testname, filename + 5);
+
+        // Determine testname
+        if (strncmp(filename, "r_py_", 5) == 0)
+        {
+            strcpy(lang, "python");
+        }
+        else if (strncmp(filename, "r_rb_", 5) == 0)
+        {
+            strcpy(lang, "ruby");
+        }
+        else
+            continue;
+
+        // Find or add to results
+        int found = -1;
+        for (int j = 0; j < result_count; ++j)
+        {
+            if (strcmp(results[j].testname, testname) == 0)
+            {
+                found = j;
+                break;
+            }
+        }
+        if (found == -1)
+        {
+            if (result_count < MAX_TESTS)
+            {
+                strcpy(results[result_count].testname, testname);
+                results[result_count].pyops = -1.0;
+                results[result_count].rbops = -1.0;
+                found = result_count++;
+            }
+            else
+                continue;
+        }
+
+        char full_filename[512];
+        snprintf(full_filename, sizeof(full_filename), "%s.json", filename);
+        double ops = extract_ops(full_filename);
+        if (strcmp(lang, "python") == 0)
+            results[found].pyops = ops;
+        else if (strcmp(lang, "ruby") == 0)
+            results[found].rbops = ops;
+    }
 
     printf("\n\n" COLOR_BOLD COLOR_YELLOW "BENCHMARK RESULTS" COLOR_RESET "\n");
     print_table_header();
 
-    for (int i = 0; i < count; ++i)
+    for (int i = 0; i < result_count; ++i)
     {
-        char *testname = names[i];
-        char out_py[512], out_rb[512];
-        snprintf(out_py, sizeof(out_py), "results_python_%s.json", testname);
-        snprintf(out_rb, sizeof(out_rb), "results_ruby_%s.json", testname);
-
-        double pyops = extract_ops(out_py);
-        double rbops = extract_ops(out_rb);
-        print_comparison_row(testname, pyops, rbops);
+        print_comparison_row(results[i].testname, results[i].pyops, results[i].rbops);
     }
 
     destroy_mutex();
-    printf("=============================================================\n");
+    printf("==================================================================================================\n");
     printf(COLOR_GREEN "All tests completed.\n" COLOR_RESET);
     return 0;
 }

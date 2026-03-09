@@ -1,0 +1,123 @@
+{
+  "name": "StringOps",
+  "runs": 5,
+  "median_time_sec": 0.12885758304037154,
+  "median_ops_per_sec": 3880252.820226717,
+  "raw": [
+    {
+      "time_s": 0.12961241696029902,
+      "ops": 500000,
+      "ops_per_sec": 3857655.0898912153,
+      "gc_stat_after": [
+        {
+          "collections": 0,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "collections": 2978,
+          "collected": 166,
+          "uncollectable": 0
+        },
+        {
+          "collections": 40,
+          "collected": 568,
+          "uncollectable": 0
+        }
+      ],
+      "total_len": 995000
+    },
+    {
+      "time_s": 0.12752483400981873,
+      "ops": 500000,
+      "ops_per_sec": 3920804.9465996767,
+      "gc_stat_after": [
+        {
+          "collections": 0,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "collections": 2978,
+          "collected": 166,
+          "uncollectable": 0
+        },
+        {
+          "collections": 41,
+          "collected": 568,
+          "uncollectable": 0
+        }
+      ],
+      "total_len": 995000
+    },
+    {
+      "time_s": 0.12885758304037154,
+      "ops": 500000,
+      "ops_per_sec": 3880252.820226717,
+      "gc_stat_after": [
+        {
+          "collections": 0,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "collections": 2978,
+          "collected": 166,
+          "uncollectable": 0
+        },
+        {
+          "collections": 42,
+          "collected": 568,
+          "uncollectable": 0
+        }
+      ],
+      "total_len": 995000
+    },
+    {
+      "time_s": 0.12775683403015137,
+      "ops": 500000,
+      "ops_per_sec": 3913684.9609313034,
+      "gc_stat_after": [
+        {
+          "collections": 0,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "collections": 2978,
+          "collected": 166,
+          "uncollectable": 0
+        },
+        {
+          "collections": 43,
+          "collected": 568,
+          "uncollectable": 0
+        }
+      ],
+      "total_len": 995000
+    },
+    {
+      "time_s": 0.12946425005793571,
+      "ops": 500000,
+      "ops_per_sec": 3862070.0291875806,
+      "gc_stat_after": [
+        {
+          "collections": 0,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "collections": 2978,
+          "collected": 166,
+          "uncollectable": 0
+        },
+        {
+          "collections": 44,
+          "collected": 568,
+          "uncollectable": 0
+        }
+      ],
+      "total_len": 995000
+    }
+  ]
+}

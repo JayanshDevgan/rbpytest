@@ -1,3 +1,4 @@
+from pathlib import Path
 import time
 import random
 import json
@@ -71,15 +72,7 @@ class ListOpsTest:
         return {
             "name": self.name,
             "runs": runs,
-            "median_time_s": median_time,
+            "median_time_sec": median_time,
             "median_ops_per_sec": median_ops,
             "raw": results
         }
-
-if __name__ == "__main__":
-    test = ListOpsTest()
-    result = test.run()
-    with open("results_python_list_ops.json", "w") as f:
-        json.dump(result, f, indent=2)
-    print(f"{result['name']}: Median Time={result['median_time_s']:.4f}s | "
-          f"Ops/sec={result['median_ops_per_sec']:.2f}")

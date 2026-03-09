@@ -48,10 +48,3 @@ class RecursiveFibTest:
             "median_peak_mem_bytes": peaks[mid],
             "raw": results
         }
-
-if __name__ == "__main__":
-    test = RecursiveFibTest(24)
-    result = test.run()
-    with open("results_python_recursive_fib.json", "w") as f:
-        json.dump(result, f, indent=2)
-    print(json.dumps(result, indent=2))

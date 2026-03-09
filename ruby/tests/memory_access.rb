@@ -8,6 +8,8 @@ class MemoryAccessTest
     @ops_per_iter = ops_per_iter
   end
 
+  attr_reader :name
+
   def workload(size = 10_000)
     arr = Array.new(size) { |i| i }
     sum = 0
@@ -47,7 +49,7 @@ class MemoryAccessTest
     {
       "name" => @name,
       "runs" => runs,
-      "median_time_s" => times[times.length / 2],
+      "median_time_sec" => times[times.length / 2],
       "median_ops_per_sec" => ops[ops.length / 2],
       "raw" => results
     }

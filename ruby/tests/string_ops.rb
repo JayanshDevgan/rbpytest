@@ -8,6 +8,8 @@ class StringOpsTest
     @ops_per_iter = ops_per_iter
   end
 
+  attr_reader :name
+
   def workload
     s = +"benchmark" # mutable string
     20.times do |i|

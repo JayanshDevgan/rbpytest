@@ -22,7 +22,7 @@ void run_tests(const char *folder, const char *extension, const char *interprete
 #ifdef _WIN32
     snprintf(list_cmd, sizeof(list_cmd), "dir /b \"%s\" | findstr %s > test_list.tmp", folder, extension);
 #else
-    snprintf(list_cmd, sizof(list_cmd), "ls \"%s\" | grep \"%s\" > test_list.tmp", folder, extension);
+    snprintf(list_cmd, sizeof(list_cmd), "ls \"%s\" | grep \"%s\" > test_list.tmp", folder, extension);
 #endif
 
     system(list_cmd);
@@ -79,7 +79,7 @@ void run_tests(const char *folder, const char *extension, const char *interprete
 
 int main()
 {
-    run_tests("python/tests", ".py", "python");
+    run_tests("python/tests", ".py", "python3");
     run_tests("ruby/tests", ".rb", "ruby");
 
     printf("\n All tests completed successfully");

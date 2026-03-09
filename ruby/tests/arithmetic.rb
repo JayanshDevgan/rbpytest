@@ -9,6 +9,8 @@ class ArithmeticTest
     @ops_per_iter = ops_per_iter
   end
 
+  attr_reader :name
+
   def workload
     s_int = 0
     s_float = 0.0
@@ -67,7 +69,7 @@ class ArithmeticTest
     {
       "name" => @name,
       "runs" => runs,
-      "median_time_s" => median_time,
+      "median_time_sec" => median_time,
       "median_ops_per_sec" => median_ops,
       "raw" => results
     }

@@ -9,6 +9,8 @@ class SortingBenchmarkTest
     @n = n
   end
 
+  attr_reader :name
+
   def run_once
     data = Array.new(@n) { rand(1_000_000) }
     t0 = Process.clock_gettime(Process::CLOCK_MONOTONIC)

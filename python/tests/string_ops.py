@@ -47,9 +47,3 @@ class StringOpsTest:
             "median_ops_per_sec": ops[len(ops)//2],
             "raw": results
         }
-
-if __name__ == "__main__":
-    result = StringOpsTest().run()
-    with open("string_ops_python.json", "w") as f:
-        json.dump(result, f, indent=2)
-    print(json.dumps(result, indent=2))
